@@ -4,12 +4,12 @@ import {
 import { styled } from '@mui/material/styles';
 
 export const StyledNavItem:any = styled(
-  () => <ListItemButton disableGutters />,
+  (props) => <ListItemButton disableGutters {...props} />,
 )(({ theme }):any => ({
   height: 48,
   position: 'relative',
   textTransform: 'capitalize',
-  color: '#808080',
+  color: theme.palette.custom.white,
   borderRadius: theme.shape.borderRadius,
 }));
 
@@ -26,16 +26,17 @@ const NavItem = ({ item }: any) => {
   const {
     title, icon, info, path,
   } = item;
-  console.log(item);
-
   return (
     <StyledNavItem
       to={path}
       sx={{
         '&.active': {
-          color: 'text.primary',
-          bgcolor: 'action.selected',
+          color: 'custom.white',
+          bgcolor: 'custom.divider',
           fontWeight: 'fontWeightBold',
+        },
+        '&:hover': {
+          bgcolor: 'custom.divider',
         },
       }}
     >
@@ -48,8 +49,8 @@ const NavItem = ({ item }: any) => {
   );
 };
 
-export const NavSection = ({ data }:any) => (
-  <Box>
+export const NavSection = ({ data, ...other }:any) => (
+  <Box {...other}>
     <List disablePadding sx={{ p: 1 }}>
       {data.map((item: any) => (
         <NavItem key={item.title} item={item} />

@@ -19,6 +19,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     indent: ['error', 2],
+    'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': [
       2,
       { namedComponents: 'arrow-function' },

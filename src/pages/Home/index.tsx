@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import {
-  Box, Button, Drawer, Typography, Avatar, Stack,
+  Box, Drawer, Typography, Avatar,
 } from '@mui/material';
 import navConfig from '../../components/Sidebar/config';
 import Logo from '../../components/common/Logo';
@@ -11,8 +11,8 @@ import Scrollbar from '../../components/common/Scrollbar';
 const NAV_WIDTH = 280;
 
 const account = {
-  displayName: 'Jaydon Frankie',
-  email: 'demo@minimals.cc',
+  displayName: 'Nada Abuzaid',
+  email: 'nada@gmail.com',
   photoURL: '/assets/images/avatars/avatar_default.jpg',
   role: 'programmer',
 };
@@ -42,6 +42,7 @@ const Home = () => {
       sx={{
         height: 1,
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
+        backgroundColor: 'secondary.main',
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
@@ -51,14 +52,12 @@ const Home = () => {
       <Box sx={{ mb: 5, mx: 2.5 }}>
         <StyledAccount>
           <Avatar src={account.photoURL} alt="photoURL" />
-
           <Box sx={{ ml: 2 }}>
-            <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
+            <Typography variant="subtitle2" sx={{ color: 'custom.white' }}>
               {account.displayName}
             </Typography>
-
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {account.role}
+            <Typography variant="body2" sx={{ color: '#e2e2e2', fontSize: '10px' }}>
+              {account.role.toUpperCase()}
             </Typography>
           </Box>
         </StyledAccount>
@@ -66,31 +65,6 @@ const Home = () => {
 
       <NavSection data={navConfig} />
 
-      <Box sx={{ flexGrow: 1 }} />
-
-      <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
-        <Stack alignItems="center" spacing={3} sx={{ pt: 5, borderRadius: 2, position: 'relative' }}>
-          <Box
-            component="img"
-            src="/assets/illustrations/illustration_avatar.png"
-            sx={{ width: 100, position: 'absolute', top: -50 }}
-          />
-
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography gutterBottom variant="h6">
-              Get more?
-            </Typography>
-
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              From only $69
-            </Typography>
-          </Box>
-
-          <Button href="https://material-ui.com/store/items/minimal-dashboard/" target="_blank" variant="contained">
-            Upgrade to Pro
-          </Button>
-        </Stack>
-      </Box>
     </Scrollbar>
   );
 
